@@ -292,8 +292,22 @@ function shop_isle_header_shop_page( $page_title ) {
 	} else {
 		$shop_isle_title = '<section class="page-header-module module bg-dark">';
 	}
-
-		$shop_isle_title .= '<div class="container">';
+        
+        //Add banner
+        global $wpdb;
+	$shop_isle_title .= $wpdb->get_var("SELECT element FROM chinato3_wp351.wpsf_don_customize WHERE type='page_banner'");
+        $shop_isle_title .= '<div class="container">';
+        
+        /* 
+         * Table wpsf_don_customize contains
+         *
+         *  <div style="background-color:red">
+         *  <div class="sale-discount">TRADITIONAL JAPANESE CUISINE MOCHI AVAILABLE ONLINE</div>
+         *    <span class="sale-button">
+         *      <a href="<url>" tabindex="-1">SHOP NOW</a>
+         *    </span>
+         *  </div>
+         * */
 
 			$shop_isle_title .= '<div class="row">';
 
